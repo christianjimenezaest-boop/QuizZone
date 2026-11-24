@@ -124,7 +124,7 @@ export default function App() {
     return (
       <View style={styles.contenedor}>
         <Text style={styles.tema}>
-          {tema === 'mundial' ? '⚽ Primer mundial' : ''}
+          {tema === 'mundial' ? '⚽ Primer mundial' : '👀 Fornite '}
         </Text>
         <Text style={styles.contador}>
           Pregunta {indice + 1} de {preguntas.length} · Puntaje: {correctas}
