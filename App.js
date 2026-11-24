@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
-const videojuegos = [
+const mundial = [
   { pregunta: 'Donde fue el primer mundial',
     opciones: ['Uruguay', 'Peru', 'España', 'Mexico'], correcta: 0 },
   { pregunta: '¿Como se llamo la primera mascota del mundials?',
@@ -13,7 +13,7 @@ const videojuegos = [
     opciones: ['7', '5', '8', '10'], correcta: 0 },
 ];
 
-const anime = [
+const fornite = [
   { pregunta: '¿En que año se lanzo Fornite?',
     opciones: ['2022', '2017', '1967', '2024'], correcta: 1 },
   { pregunta: '¿Como se llama el estudio que desarrolla Fornite?',
@@ -35,10 +35,10 @@ export default function App() {
 
   // Elegimos el arreglo de preguntas según el tema (condicional)
   let preguntas = [];
-  if (tema === 'videojuegos') {
-    preguntas = videojuegos;
-  } else if (tema === 'anime') {
-    preguntas = anime;
+  if (tema === 'mundial') {
+    preguntas = mundial;
+  } else if (tema === 'fornite') {
+    preguntas = fornite;
   }
   const actual = preguntas[indice]; // pregunta que se muestra
 
@@ -50,7 +50,7 @@ export default function App() {
     setSeleccion(null);
     setCorrectas(0);
     setIncorrectas(0);
-    if (t === 'videojuegos') {
+    if (t === 'mundial') {
       setPantalla(3);
     } else {
       setPantalla(4);
@@ -100,10 +100,10 @@ export default function App() {
       <View style={styles.contenedor}>
         <Text style={styles.titulo}>Selecciona un tema</Text>
         <View style={styles.espacio}>
-          <Button title="⚽ Primer mundial" onPress={() => elegirTema('videojuegos')} />
+          <Button title="⚽ Primer mundial" onPress={() => elegirTema('mundial')} />
         </View>
         <View style={styles.espacio}>
-          <Button title="👀 Fornite " onPress={() => elegirTema('anime')} />
+          <Button title="👀 Fornite " onPress={() => elegirTema('fornite')} />
         </View>
         <View style={styles.espacio}>
           <Button title="Atrás" color="#7a869a" onPress={() => setPantalla(1)} />
@@ -124,7 +124,7 @@ export default function App() {
     return (
       <View style={styles.contenedor}>
         <Text style={styles.tema}>
-          {tema === 'videojuegos' ? '⚽ Primer mundial' : ''}
+          {tema === 'mundial' ? '⚽ Primer mundial' : ''}
         </Text>
         <Text style={styles.contador}>
           Pregunta {indice + 1} de {preguntas.length} · Puntaje: {correctas}
